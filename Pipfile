@@ -13,6 +13,8 @@ djangorestframework = "~=3.14.0"
 django-cors-headers = "~=4.2.0"
 dj-rest-auth = "~=4.0.1"
 django-allauth = "~=0.54.0"
+djangorestframework-gis = "~=1.0"
+django-leaflet = "~=0.29.0"
 
 [dev-packages]
 

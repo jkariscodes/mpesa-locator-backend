@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+    'django.contrib.gis',
     # Third party
     'rest_framework',
     'corsheaders',
@@ -42,8 +43,10 @@ INSTALLED_APPS = [
     'allauth.account',
     'dj_rest_auth',
     'dj_rest_auth.registration',
+    'leaflet',
     # Local
     'people',
+    'locator_api',
 ]
 
 MIDDLEWARE = [
@@ -143,4 +146,19 @@ ACCOUNT_CONFIRM_EMAIL_ON_GET = True
 REST_AUTH = {
     "REGISTER_SERIALIZER": "dj_rest_auth.registration.serializers.RegisterSerializer",
     "LOGOUT_ON_PASSWORD_CHANGE": False,
+}
+
+# Base REST settings
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.CursorPagination',
+    'PAGE_SIZE': 100
+}
+
+# Leaflet configuration
+LEAFLET_CONFIG = {
+    "DEFAULT_CENTER": (-1.30, 36.85),
+    "DEFAULT_ZOOM": 11,
+    "MAX_ZOOM": 20,
+    "SCALE": "both",
+    "ATTRIBUTION_PREFIX": "MPESA Locations Map",
 }
