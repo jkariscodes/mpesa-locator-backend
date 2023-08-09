@@ -24,7 +24,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -34,9 +33,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     # Third party
     'rest_framework',
     'corsheaders',
+    "rest_framework.authtoken",
+    'allauth',
+    'allauth.account',
+    'dj_rest_auth',
+    'dj_rest_auth.registration',
     # Local
     'people',
 ]
@@ -72,7 +77,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'locator_backend.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
@@ -82,7 +86,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -102,7 +105,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
@@ -113,7 +115,6 @@ TIME_ZONE = 'Africa/Nairobi'
 USE_I18N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
@@ -131,3 +132,15 @@ AUTH_USER_MODEL = 'people.User'
 # Database URL configuration
 db_env = dj_database_url.config(conn_max_age=600)
 DATABASES["default"].update(db_env)
+
+# User redirected to login automatically on confirm
+LOGIN_REDIRECT_URL = "/"
+ACCOUNT_LOGOUT_REDIRECT = "/"
+SITE_ID = 1
+ACCOUNT_CONFIRM_EMAIL_ON_GET = True
+
+# Rest Authentication configuration
+REST_AUTH = {
+    "REGISTER_SERIALIZER": "dj_rest_auth.registration.serializers.RegisterSerializer",
+    "LOGOUT_ON_PASSWORD_CHANGE": False,
+}
