@@ -37,3 +37,6 @@ REST_FRAMEWORK = {
 
 # Cross-origin configuration
 CORS_ALLOW_ALL_ORIGINS = True
+
+# Email backend
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
