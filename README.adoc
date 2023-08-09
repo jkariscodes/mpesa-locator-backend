@@ -1,0 +1,3 @@
+= Mpesa Locator Backend
+
+This is the backend project that exposes application programming interface (API) endpoints for user authentication and geo-location data representing MPESA locations in selected locations in Nairobi county. The data used in this project has been sourced from Google Geolocation API.
