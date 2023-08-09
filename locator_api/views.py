@@ -1,3 +1,9 @@
-from django.shortcuts import render
+from rest_framework import viewsets, permissions
+from .models import MpesaLocations
+from .serializers import MpesaLocationsSerializer
 
-# Create your views here.
+
+class MpesaLocationViewSet(viewsets.ModelViewSet):
+    queryset = MpesaLocations.objects.all()
+    serializer_class = MpesaLocationsSerializer
+    permission_classes = [permissions.IsAuthenticated]
