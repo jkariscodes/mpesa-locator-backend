@@ -1,0 +1,16 @@
+[{
+  "model": "people.user",
+  "pk": 4,
+  "fields": {
+    "password": "GeodjangoUser123@",
+    "last_login": "2023-08-09T11:10:25Z",
+    "is_superuser": true,
+    "username": "geoadmin",
+    "email": "geoadmin@email.com",
+    "is_active": true,
+    "is_staff": true,
+    "groups": [],
+    "user_permissions": []
+  }
+}
+]
