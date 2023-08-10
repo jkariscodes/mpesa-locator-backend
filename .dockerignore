@@ -1,0 +1,35 @@
+# Python-related
+__pycache__
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+*.log
+*.bak
+
+# Virtual environments
+venv/
+env/
+*.venv
+
+# Editor and IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Local development settings
+*.env
+
+# Compiled or built files
+*.pyz
+*.pyw
+*.so
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Dependency management files
+pip-log.txt
+pip-delete-this-directory.txt

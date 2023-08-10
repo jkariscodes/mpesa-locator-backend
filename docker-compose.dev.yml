@@ -1,0 +1,42 @@
+version: "3.9"
+
+services:
+  postgres-db:
+    image: geonode/postgis:15
+    container_name: db4${COMPOSE_PROJECT_NAME}
+    volumes:
+      - ./db-init-script:/docker-entrypoint-initdb.d/
+      - postgres_data:/var/lib/postgresql
+    environment:
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - DB_NAME=${DB_NAME}
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-q", "-d", "postgres", "-U", "$POSTGRES_USER" ]
+      timeout: 30s
+      interval: 8s
+      retries: 10
+    ports:
+      - "5432:5432"
+    restart: always
+
+  django:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: backend4${COMPOSE_PROJECT_NAME}
+    env_file:
+      - .env
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./:/home/locator/mpesa_locator_backend
+    ports:
+      - "8000:8000"
+    restart: always
+    depends_on:
+      postgres-db:
+        condition: service_healthy
+
+volumes:
+  postgres_data:

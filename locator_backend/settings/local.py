@@ -4,7 +4,7 @@ ENV = "development"
 
 SECRET_KEY = env("SECRET_KEY")
 
-DEBUG = True
+DEBUG = env("DEBUG")
 
 ALLOWED_HOSTS = env("ALLOWED_HOSTS").split(" ")
 
@@ -18,7 +18,7 @@ DATABASES = {
         "PORT": env("DB_PORT"),
         'TEST': {
             'TEMPLATE': env("DB_NAME"),
-            "NAME": "mytestdatabase",
+            "NAME": env("TEST_DB_NAME"),
         },
     }
 }
