@@ -95,7 +95,9 @@ test-locator-api:
 	@echo -e "$(YELLOW)Run tests on locator_api Django app:$(COFF)"
 	@docker-compose -f docker-compose.dev.yml run --rm django python ./manage.py test locator_api $(cmd)
 
-test-django-project: test-people test-locator-api
+test-django:
+	@echo -e "$(YELLOW)Run automatic django tests:$(COFF)"
+	@docker-compose -f docker-compose.dev.yml run --rm django py.test
 
 lint-check:
 	@echo -e "$(YELLOW)Run black formatter check:$(COFF)"
