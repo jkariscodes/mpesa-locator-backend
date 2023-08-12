@@ -1,8 +1,10 @@
+import pytest
 from django.test import TestCase
 from django.contrib.auth import get_user_model
 
 
 class CustomUserTests(TestCase):
+    @pytest.mark.django_db
     def test_create_user(self):
         User = get_user_model()
         user = User.objects.create_user(
@@ -24,6 +26,7 @@ class CustomUserTests(TestCase):
         with self.assertRaises(TypeError):
             User.objects.create_user(email="")
 
+    @pytest.mark.django_db
     def test_create_superuser(self):
         User = get_user_model()
         admin_user = User.objects.create_superuser(
