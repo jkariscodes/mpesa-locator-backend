@@ -27,7 +27,7 @@ from drf_spectacular.views import (
 urlpatterns = [
     path("geoadmin/", admin.site.urls),
     path("api/v1/user-auth/", include("people.urls")),
-    path("", include("locator_api.urls")),
+    path("", include("locator_api.urls"), name="mpesa-locations"),
     path("api/schema/", SpectacularAPIView.as_view(), name="schema"),
     path("api/schema/redoc/", SpectacularRedocView.as_view(), name="redoc"),
     path(
