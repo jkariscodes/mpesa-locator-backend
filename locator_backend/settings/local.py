@@ -1,4 +1,5 @@
 from .base import *
+import socket
 
 ENV = "development"
 
@@ -38,3 +39,21 @@ CORS_ALLOW_ALL_ORIGINS = True
 
 # Email backend
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
+# Debug Toolbar
+INSTALLED_APPS.extend(
+    [
+        "debug_toolbar",
+    ]
+)
+MIDDLEWARE.extend(
+    [
+        "debug_toolbar.middleware.DebugToolbarMiddleware",
+    ]
+)
+
+hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
+INTERNAL_IPS = [ip[: ip.rfind(".")] + ".1" for ip in ips] + [
+    "127.0.0.1",
+    "10.0.2.2",
+]
