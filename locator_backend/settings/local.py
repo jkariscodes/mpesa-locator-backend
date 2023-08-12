@@ -16,8 +16,8 @@ DATABASES = {
         "PASSWORD": env("DB_PASSWORD"),
         "HOST": env("DB_HOST"),
         "PORT": env("DB_PORT"),
-        'TEST': {
-            'TEMPLATE': env("TEST_TEMPLATE_DB_NAME"),
+        "TEST": {
+            "TEMPLATE": env("TEST_TEMPLATE_DB_NAME"),
             "NAME": env("TEST_DB_NAME"),
         },
     }
@@ -30,6 +30,7 @@ REST_FRAMEWORK = {
         "rest_framework.authentication.BasicAuthentication",
         "rest_framework.authentication.TokenAuthentication",
     ],
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
 }
 
 # Cross-origin configuration
