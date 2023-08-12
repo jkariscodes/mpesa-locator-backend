@@ -108,7 +108,7 @@ lint-fix:
 	@docker-compose -f docker-compose.dev.yml run --rm django black . $(cmd)
 
 coverage:
-	@echo -e "$(YELLOW)Running automatic code coverage check for Python:$(COFF)"
+	@echo -e "$(CYAN)Running automatic code coverage check for Python:$(COFF)"
 
 print-logs:
 	@echo -e "$(YELLOW)Print out logs:$(COFF)"

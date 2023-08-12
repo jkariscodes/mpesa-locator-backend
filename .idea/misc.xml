@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="Black">
+    <option name="enabledOnSave" value="true" />
+    <option name="pathToExecutable" value="$USER_HOME$/.local/bin/black" />
+    <option name="sdkUUID" value="3b6233f4-1674-411c-af15-3aca0b7c15a0" />
+  </component>
   <component name="ProjectRootManager" version="2" project-jdk-name="Pipenv (mpesa-locator-backend)" project-jdk-type="Python SDK" />
 </project>
