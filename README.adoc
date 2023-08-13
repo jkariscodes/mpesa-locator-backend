@@ -2,7 +2,7 @@
 
 = Mpesa Locator Backend
 
-
+image::images/mpesa-locator-app.png[alt="MPESA Locator"]
 
 == Project Overview
 
