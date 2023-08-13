@@ -5,7 +5,7 @@
     "password": "GeodjangoUser123@",
     "last_login": "2023-08-09T11:10:25Z",
     "is_superuser": true,
-    "username": "geoadmin",
+    "username": "geoadmin@email.com",
     "email": "geoadmin@email.com",
     "is_active": true,
     "is_staff": true,

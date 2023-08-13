@@ -2,19 +2,21 @@
 
 = Mpesa Locator Backend
 
+image::images/mpesa-locator-app.png[alt="MPESA Locator"]
+
 == Project Overview
 
-Mpesa Locator is a simplified tool for backend engineers and project managers especially those working with location-based data. It consists of an application programming interface (API) endpoints supporting user authorization and authentication, and management of link:https://en.wikipedia.org/wiki/Geographic_information_system[geographic information systems] (GIS) data for MPESA locations in selected locations in selected counties in Kenya. The location properites of the data used in this project has been sourced from link:https://developers.google.com/maps/documentation/geolocation/overview[Google Geolocation API].
+Mpesa Locator is a simplified tool for backend engineers and project managers especially those working with location-based data. It consists of an application programming interface (API) endpoints supporting user authorization and authentication, and management of link:https://en.wikipedia.org/wiki/Geographic_information_system[geographic information systems] (GIS) data for MPESA locations in selected locations in selected counties in Kenya. The location properties of the data used in this project have been sourced from link:https://developers.google.com/maps/documentation/geolocation/overview[Google Geolocation API].
 
-=== Structure overview
-This project is split into two parts – the back-end (written in Python &amp;
+=== Structure Overview
+This project is split into two parts – the back end (written in Python &amp;
 Django), and the front-end (written in JavaScript &amp; React) and exists in another repository.
 
 The general folder structure for the project can be seen below:
 
 ----
 ├── data                   # Contains GIS dataset and importing script
-├── db-init-script         # Contains database entrypoint script with instructions
+├── db-init-script         # Contains database entry point script with instructions
 ├── locator-api            # Locator app with REST API endpoints for data
 ├── locator_backend        # Django project folder with project files
 ├── people                 # Django app facilitating user account management
@@ -30,7 +32,7 @@ The general folder structure for the project can be seen below:
 ├── README.md              # Readme file for this project
 ├── docker-compose.dev.yml # Configuration defining multiple Docker containers used in this app
 ├── manage.py              # Command-line interface for performing administrative tasks
-├── pytest.ini             # Configuration file for unit testing testing using pytest framework
+├── pytest.ini             # Configuration file for unit testing using pytest framework
 ----
 To perform some operations, a link:Makefile[Makefile] with a set of `make`
 commands is provided. In order to run these commands, the GNU `make` utility
@@ -38,10 +40,10 @@ needs to be installed. Some of the commands are listed below.
 
 TIP:  To see exactly what a make command is doing, you can run it with the `-n` argument. +
  `make migrate -n` will output some details
- This that you can see how to run arbitrary django commands.
+ This that you can see how to run arbitrary Django commands.
 
 ==== System Prerequisites
-To be able to run the project in Docker environment, it's necessary to have
+To be able to run the project in a Docker environment, it's necessary to have
 https://docs.docker.com/[`docker`] and
 https://docs.docker.com/compose/[`docker-compose`] installed.
 
@@ -60,13 +62,13 @@ link:Pipfile[`Pipfile`]. The initial requirements include:
 * https://www.django-rest-framework.org/[djangorestframework]
  for REST API
 * https://github.com/openwisp/django-rest-framework-gis/[djangorestframework-gis]
- for adding geographic functionalities to django REST framework
-* https://www.psycopg.org/psycopg3/docs/[psycopg] python database adapter for PostgreSQL databases
+ for adding geographic functionalities to Django REST framework
+* https://www.psycopg.org/psycopg3/docs/[psycopg] Python database adapter for PostgreSQL databases
 * https://www.psycopg.org/psycopg3/docs/[psycopg-binary] convenience package that provides precompiled binary wheels for psycopg
 * https://dj-rest-auth.readthedocs.io/en/latest/[dj-rest-auth] for basic auth functionality like login, logout, and signup which can be extended
 * https://django-allauth.readthedocs.io/en/latest/[django-allauth] to
- help with standard user registration process
-* https://django-allauth.readthedocs.io/en/latest/[django-leaflet] for adding leaflet addons to django
+ help with the standard user registration process
+* https://django-allauth.readthedocs.io/en/latest/[django-leaflet] for adding leaflet addons to Django
 * https://github.com/adamchainz/django-cors-headers/[django-cors-headers] for handling the server headers required for Cross-Origin Resource Sharing (CORS)
 * https://github.com/jazzband/dj-database-url/[dj-database-url] for configuring database URLs
 * https://django-environ.readthedocs.org/[django-environ] for management of environment variables
@@ -103,7 +105,7 @@ Alternatively, to start the services in the background (detached mode) where you
 ----
 make start-django-detached
 ----
-Once the services have started, Django should be running in its standard port 8000 and postgres at 5432. You can change this values in the .env file and link:docker-compose.dev.yml[docker-compose] file.
+Once the services have started, Django should be running in its standard port 8000 and Postgres at 5432. You can change these values in the .env file and link:docker-compose.dev.yml[docker-compose] file.
 
 To stop the services, type:
 [source,bash]
@@ -132,8 +134,8 @@ make print-logs-interactive
 The other commands include:
 
 * `make makemigrations` which creates new database migration files based on the changes you make to your models, if any.
-* `make shell` which starts a Linux shell (bash) in the django container
-* `make django-shell` which starts a django python shell in the django container
+* `make shell` which starts a Linux shell (bash) in the Django container
+* `make django-shell` which starts a django python shell in the Django container
 
 ==== Database
 
@@ -148,7 +150,7 @@ make migrate
 
 ===== Application data
 
-At the start the project has no data in the database. No users, or data.
+At the start, the project has no data in the database. No users, or data.
 
 .To create a superuser:
 ----
@@ -159,7 +161,7 @@ make create-superuser
 ----
 make create-test-admin
 ----
-The superuser created above has the following log in credentials that you can use to access the Django admin site at http://127.0.0.1:8000/geoadmin/. Username: *geoadmin@email.com*, and password: *GeodjangoUser123@*
+The superuser created above has the following login credentials that you can use to access the Django admin site at http://127.0.0.1:8000/geoadmin/. Username: *geoadmin@email.com*, and password: *GeodjangoUser123@*
 
 .To load location data for this project:
 ----
@@ -199,8 +201,8 @@ To access the API documentation, visit:
 
 ===== Endpoints
 
-The project REST API in facilitates user management and serves data as JSON objects which can be consumed by any client. The following are the general endpoints. All other endpoints can be viewed in the documentation links above.
-For people app (user management) the following endpoints should work:
+The project REST API facilitates user management and serves data as JSON objects which can be consumed by any client. The following are the general endpoints. All other endpoints can be viewed in the documentation links above.
+For people, app (user management) the following endpoints should work:
 
 * **Signup** - api/v1/user-auth/signup/
 * **Login** - api/v1/user-auth/login/
