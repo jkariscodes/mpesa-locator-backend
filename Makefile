@@ -112,8 +112,8 @@ coverage:
 
 print-logs:
 	@echo -e "$(YELLOW)Print out logs:$(COFF)"
-	@docker-compose -f docker-compose.dev.yml django logs$(cmd)
+	@docker-compose -f docker-compose.dev.yml logs django$(cmd)
 
 print-logs-interactive:
 	@echo -e "$(YELLO)Print out logs:$(COFF)"
-	@docker-compose -f docker-compose.dev.yml django logs --follow $(cmd)
+	@docker-compose -f docker-compose.dev.yml logs --follow django $(cmd)
