@@ -6,7 +6,7 @@ services:
     container_name: db4${COMPOSE_PROJECT_NAME}
     volumes:
       - ./db-init-script:/docker-entrypoint-initdb.d/
-      - postgres_data:/var/lib/postgresql
+      - postgres_data:/var/lib/postgresql/data/
     environment:
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
       - DB_NAME=${DB_NAME}
