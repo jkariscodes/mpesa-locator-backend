@@ -10,5 +10,10 @@ class MpesaLocations(models.Model):
     county = models.CharField(_("County"), max_length=20)
     geom = models.MultiPointField(_("Geometry"))
 
+    class Meta:
+        indexes = [
+            models.Index(fields=["geom"], name="geom_index")
+        ]
+
     def __str__(self):
         return self.formatted_field
