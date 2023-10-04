@@ -5,23 +5,40 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='MpesaLocations',
+            name="MpesaLocations",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('formatted_field', models.CharField(max_length=254, verbose_name='Name')),
-                ('latitude', models.FloatField(verbose_name='Latitude')),
-                ('longitude', models.FloatField(verbose_name='Longitude')),
-                ('input_stri', models.CharField(max_length=254, verbose_name='Detailed Name')),
-                ('county', models.CharField(max_length=20, verbose_name='County')),
-                ('geom', django.contrib.gis.db.models.fields.MultiPointField(srid=4326, verbose_name='Geometry')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "formatted_field",
+                    models.CharField(max_length=254, verbose_name="Name"),
+                ),
+                ("latitude", models.FloatField(verbose_name="Latitude")),
+                ("longitude", models.FloatField(verbose_name="Longitude")),
+                (
+                    "input_stri",
+                    models.CharField(max_length=254, verbose_name="Detailed Name"),
+                ),
+                ("county", models.CharField(max_length=20, verbose_name="County")),
+                (
+                    "geom",
+                    django.contrib.gis.db.models.fields.MultiPointField(
+                        srid=4326, verbose_name="Geometry"
+                    ),
+                ),
             ],
         ),
     ]

@@ -11,9 +11,7 @@ class MpesaLocations(models.Model):
     geom = models.MultiPointField(_("Geometry"))
 
     class Meta:
-        indexes = [
-            models.Index(fields=["geom"], name="geom_index")
-        ]
+        indexes = [models.Index(fields=["geom"], name="geom_index")]
 
     def __str__(self):
         return self.formatted_field

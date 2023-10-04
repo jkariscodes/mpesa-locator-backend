@@ -8,4 +8,3 @@ class ProfileAdmin(admin.ModelAdmin):
         "username",
         "email",
     ]
-
